@@ -41,7 +41,7 @@ const engravers = localFont({
 
 export const metadata: Metadata = {
   title: "Lucy Hazell Fitness",
-  description: "Providing exercise classes to women in North Yorkshire",
+  description: "Empowering women to feel stronger, healthier, and more confident through personalised coaching.",
 };
 
 export default function RootLayout({
