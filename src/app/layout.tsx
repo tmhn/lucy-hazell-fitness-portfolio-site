@@ -51,7 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${recoleta.variable} ${engravers.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-[#f5f7f4] text-[#273343]">{children}</body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }
