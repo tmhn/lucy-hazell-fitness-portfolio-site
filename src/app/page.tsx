@@ -22,7 +22,9 @@ export default function Home() {
         style={{ animationDelay: "40ms" }}
       >
         <a href="#" className="flex items-center gap-3">
-          <span className="font-engravers text-[22px] leading-none text-ink">{c.brand.name}</span>
+          <span className="font-engravers text-[22px] leading-none text-ink">
+            {c.brand.name}
+          </span>
           <span className="hidden h-3 w-px bg-hairline sm:block" />
           <span className="font-engravers hidden text-sm text-ink-muted sm:block">
             {c.brand.tagline}
@@ -35,7 +37,16 @@ export default function Home() {
             </a>
           ))}
         </nav>
-        <Button href={c.primaryCta.href}>{c.primaryCta.label}</Button>
+        <Image
+          src="/menu-icon.svg"
+          alt="Menu"
+          width={20}
+          height={14}
+          className="lg:hidden"
+        />
+        <div className="hidden md:block">
+          <Button href={c.primaryCta.href}>{c.primaryCta.label}</Button>
+        </div>
       </header>
 
       {/* Hero */}
@@ -49,7 +60,12 @@ export default function Home() {
                 </div>
 
                 <div className="rise" style={{ animationDelay: "200ms" }}>
-                  <Heading heading={c.hero.heading} level="h1" size="xl" emphasisUnderline />
+                  <Heading
+                    heading={c.hero.heading}
+                    level="h1"
+                    size="xl"
+                    emphasisUnderline
+                  />
                 </div>
 
                 <p
@@ -66,7 +82,11 @@ export default function Home() {
                   <Button href={c.hero.primaryCta.href} size="lg" withArrow>
                     {c.hero.primaryCta.label}
                   </Button>
-                  <Button href={c.hero.secondaryCta.href} variant="ghost" size="lg">
+                  <Button
+                    href={c.hero.secondaryCta.href}
+                    variant="ghost"
+                    size="lg"
+                  >
                     {c.hero.secondaryCta.label}
                   </Button>
                 </div>
@@ -83,7 +103,13 @@ export default function Home() {
                       className="relative h-11 w-11 overflow-hidden rounded-full border-[2.5px] border-[#f0ebde] bg-stone"
                       style={{ zIndex: c.hero.trust.avatars.length - i }}
                     >
-                      <Image src={src} alt="" fill sizes="44px" className="object-cover" />
+                      <Image
+                        src={src}
+                        alt=""
+                        fill
+                        sizes="44px"
+                        className="object-cover"
+                      />
                     </div>
                   ))}
                 </div>
@@ -95,7 +121,9 @@ export default function Home() {
                   </div>
                   <p>
                     {c.hero.trust.textLead}
-                    <span className="font-semibold text-ink">{c.hero.trust.textStrong}</span>
+                    <span className="font-semibold text-ink">
+                      {c.hero.trust.textStrong}
+                    </span>
                     {c.hero.trust.textTrail}
                   </p>
                 </div>
@@ -123,7 +151,9 @@ export default function Home() {
                   />
                 </div>
                 <div className="absolute left-6 top-6 flex items-center gap-2 text-sage-deep/60">
-                  <span className="font-engravers text-sm tracking-[0.3em]">{c.hero.since}</span>
+                  <span className="font-engravers text-sm tracking-[0.3em]">
+                    {c.hero.since}
+                  </span>
                 </div>
               </div>
 
@@ -150,7 +180,9 @@ export default function Home() {
                   <Icon name={c.hero.badge.icon} className="h-3.5 w-3.5" />
                 </span>
                 <span className="text-[11px] leading-tight text-ink-soft">
-                  <span className="font-semibold text-ink pr-1">{c.hero.badge.prefix}</span>
+                  <span className="font-semibold text-ink pr-1">
+                    {c.hero.badge.prefix}
+                  </span>
                   {c.hero.badge.text}
                 </span>
               </div>
@@ -242,9 +274,9 @@ export default function Home() {
 
         <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="rounded-[32px] border border-hairline bg-white p-10">
-            <Heading heading={c.results.heading} size="md" />
+            <Heading heading={c.results.heading} size="sm" />
             <div className="hairline mt-10" />
-            <div className="mt-10 grid grid-cols-3 gap-6">
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
               {c.results.stats.map((stat) => (
                 <StatBlock key={stat.label} stat={stat} />
               ))}
@@ -290,9 +322,13 @@ export default function Home() {
         <div className="hairline mb-10" />
         <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
           <div className="flex items-center gap-3">
-            <span className="font-engravers text-[18px] text-ink">{c.brand.name}</span>
+            <span className="font-engravers text-[18px] text-ink">
+              {c.brand.name}
+            </span>
             <span className="h-3 w-px bg-hairline" />
-            <span className="font-engravers text-sm text-ink-muted">{c.brand.tagline}</span>
+            <span className="font-engravers text-sm text-ink-muted">
+              {c.brand.tagline}
+            </span>
           </div>
           <div className="flex flex-wrap gap-6 text-[12px] text-ink-soft">
             {c.footer.links.map((link) => (

@@ -13,7 +13,7 @@ type Props = {
 };
 
 const sizes: Record<Size, string> = {
-  sm: "text-[44px] leading-[1.02] tracking-[-0.01em] sm:text-[52px]",
+  sm: "text-[36px] leading-[1.02] tracking-[-0.01em] sm:text-[52px]",
   md: "text-[44px] leading-[1.02] tracking-[-0.01em] sm:text-[56px]",
   lg: "text-[48px] leading-[1.02] tracking-[-0.01em] sm:text-[62px]",
   xl: "text-[52px] leading-[1.0] tracking-[-0.02em] sm:text-[68px] lg:text-[76px]",
