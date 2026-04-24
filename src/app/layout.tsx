@@ -40,7 +40,7 @@ const engravers = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Lucy Hazell Fitness",
+  title: "Lucy Hazell | Personal Training & Coaching for Women",
   description: "Empowering women to feel stronger, healthier, and more confident through personalised coaching.",
 };
 
