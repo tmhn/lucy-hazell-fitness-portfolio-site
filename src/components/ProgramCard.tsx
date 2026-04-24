@@ -74,7 +74,7 @@ export function ProgramCard({ program }: { program: Program }) {
         </p>
         <a
           href={program.link.href}
-          className="font-engravers mt-auto inline-flex items-center gap-2 text-[11px] text-sage-deep"
+          className="font-engravers mt-auto justify-end inline-flex items-center gap-2 text-sm text-sage-deep"
         >
           {program.link.label}
           <Icon name="arrow-right" className="h-3 w-3" />

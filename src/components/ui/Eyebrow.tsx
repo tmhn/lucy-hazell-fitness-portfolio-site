@@ -19,7 +19,7 @@ export function Eyebrow({ children, align = "start", className = "" }: Props) {
         aria-hidden
         className="h-px w-8 flex-shrink-0 bg-ink-muted/50"
       />
-      <span>{children}</span>
+      <span className="text-center sm:text-start">{children}</span>
       <span
         aria-hidden
         className={`h-px w-8 flex-shrink-0 bg-ink-muted/50 ${trailingRuleHidden}`.trim()}

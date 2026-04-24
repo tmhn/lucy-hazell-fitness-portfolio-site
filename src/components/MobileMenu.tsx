@@ -145,7 +145,7 @@ function MobileMenuDrawer({
               />
             </div>
             <div className="flex flex-1 flex-col justify-center gap-1.5 px-5">
-              <p className="font-engravers text-[9px] tracking-[0.3em] text-ink-muted">
+              <p className="font-engravers text-xs tracking-[0.3em] text-ink-muted">
                 Hi, I&rsquo;m
               </p>
               <p className="font-recoleta text-[34px] italic leading-[0.95] text-ink">
@@ -165,7 +165,7 @@ function MobileMenuDrawer({
 
           <nav className="relative mt-5 flex-1 overflow-y-auto px-6">
             <p
-              className={`font-engravers mb-2 flex items-center gap-3 text-[10px] text-ink-muted transition-all duration-500 ease-out ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
+              className={`font-engravers mb-2 flex items-center gap-3 text-sm text-ink-muted transition-all duration-500 ease-out ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}
               style={stagger(200)}
             >
               <span aria-hidden className="h-px w-6 bg-ink-muted/50" />
@@ -203,7 +203,7 @@ function MobileMenuDrawer({
               {cta.label}
             </Button>
             {location && (
-              <p className="font-engravers mt-4 text-center text-[10px] tracking-[0.24em] text-ink-muted">
+              <p className="font-engravers mt-4 text-center text-xs tracking-[0.24em] text-ink-muted">
                 {location}
               </p>
             )}
