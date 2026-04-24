@@ -5,14 +5,25 @@ type Props = {
 };
 
 export function Eyebrow({ children, align = "start", className = "" }: Props) {
-  const rule = <span className="h-px w-8 bg-ink-muted/50" />;
+  const centerAlways = align === "center";
+  const justify = centerAlways
+    ? "justify-center"
+    : "justify-center sm:justify-start";
+  const trailingRuleHidden = centerAlways ? "" : "sm:hidden";
+
   return (
     <p
-      className={`font-engravers flex items-center gap-3 text-sm text-ink-muted ${className}`.trim()}
+      className={`font-engravers flex w-full items-center gap-3 text-sm text-ink-muted ${justify} ${className}`.trim()}
     >
-      {rule}
-      {children}
-      {align === "center" && rule}
+      <span
+        aria-hidden
+        className="h-px w-8 flex-shrink-0 bg-ink-muted/50"
+      />
+      <span>{children}</span>
+      <span
+        aria-hidden
+        className={`h-px w-8 flex-shrink-0 bg-ink-muted/50 ${trailingRuleHidden}`.trim()}
+      />
     </p>
   );
 }

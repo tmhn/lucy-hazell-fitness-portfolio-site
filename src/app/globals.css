@@ -161,6 +161,11 @@ body {
   box-shadow: 0 20px 40px -24px rgba(28, 44, 68, 0.25);
 }
 
+/* hide vertical mobile step connector on the final step */
+.step-item:last-child .step-connector {
+  display: none;
+}
+
 /* nav underline */
 .nav-link {
   position: relative;

@@ -10,6 +10,7 @@ import { ProgramCard } from "@/components/ProgramCard";
 import { StepItem } from "@/components/StepItem";
 import { StatBlock } from "@/components/StatBlock";
 import { TestimonialCard } from "@/components/TestimonialCard";
+import { MobileMenu } from "@/components/MobileMenu";
 
 export default function Home() {
   const c = homeContent;
@@ -37,12 +38,12 @@ export default function Home() {
             </a>
           ))}
         </nav>
-        <Image
-          src="/menu-icon.svg"
-          alt="Menu"
-          width={20}
-          height={14}
-          className="lg:hidden"
+        <MobileMenu
+          nav={c.nav}
+          cta={c.primaryCta}
+          brand={c.brand}
+          photo={c.hero.image}
+          location="Yorkshire • Online worldwide"
         />
         <div className="hidden md:block">
           <Button href={c.primaryCta.href}>{c.primaryCta.label}</Button>
@@ -76,16 +77,22 @@ export default function Home() {
                 </p>
 
                 <div
-                  className="rise flex flex-wrap items-center gap-3"
+                  className="rise flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center"
                   style={{ animationDelay: "360ms" }}
                 >
-                  <Button href={c.hero.primaryCta.href} size="lg" withArrow>
+                  <Button
+                    href={c.hero.primaryCta.href}
+                    size="lg"
+                    withArrow
+                    fullWidthOnMobile
+                  >
                     {c.hero.primaryCta.label}
                   </Button>
                   <Button
                     href={c.hero.secondaryCta.href}
                     variant="ghost"
                     size="lg"
+                    fullWidthOnMobile
                   >
                     {c.hero.secondaryCta.label}
                   </Button>
@@ -158,22 +165,24 @@ export default function Home() {
               </div>
 
               <aside
-                className="drift absolute -right-3 top-1/2 w-[148px] -translate-y-1/2 rounded-2xl border border-white/70 bg-white px-5 py-5 text-center shadow-[0_24px_50px_-20px_rgba(28,44,68,0.25)] lg:-right-6"
+                className="drift mx-auto mt-5 flex w-fit items-center gap-4 rounded-2xl border border-hairline bg-white px-5 py-3 text-left shadow-[0_16px_32px_-18px_rgba(28,44,68,0.18)] lg:absolute lg:-right-6 lg:top-1/2 lg:mx-0 lg:mt-0 lg:w-[148px] lg:-translate-y-1/2 lg:flex-col lg:items-center lg:gap-0 lg:px-5 lg:py-5 lg:text-center lg:shadow-[0_24px_50px_-20px_rgba(28,44,68,0.25)]"
                 style={{ animationDelay: "0.6s" }}
               >
-                <p className="font-recoleta text-[40px] leading-none tracking-tight text-ink">
+                <p className="font-recoleta text-[34px] leading-none tracking-tight text-ink lg:text-[40px]">
                   {c.hero.statCard.value}
                 </p>
-                <p className="mt-2 text-[11px] leading-tight text-ink-soft">
-                  {c.hero.statCard.label}
-                </p>
-                <div className="mx-auto mt-3 flex h-7 w-7 items-center justify-center rounded-full bg-sage-mist text-sage-deep">
-                  <Icon name={c.hero.statCard.icon} className="h-3.5 w-3.5" />
+                <div className="flex items-center gap-3 lg:contents">
+                  <p className="max-w-[110px] text-[11px] leading-tight text-ink-soft lg:mt-2 lg:max-w-none">
+                    {c.hero.statCard.label}
+                  </p>
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sage-mist text-sage-deep lg:mx-auto lg:mt-3">
+                    <Icon name={c.hero.statCard.icon} className="h-3.5 w-3.5" />
+                  </div>
                 </div>
               </aside>
 
               <div
-                className="drift absolute -left-2 bottom-6 flex items-center gap-3 rounded-full border border-white/80 bg-white/95 px-4 py-2 shadow-[0_18px_30px_-18px_rgba(28,44,68,0.3)] lg:-left-4"
+                className="hidden sm:flex drift absolute -left-2 bottom-6 items-center gap-3 rounded-full border border-white/80 bg-white/95 px-4 py-2 shadow-[0_18px_30px_-18px_rgba(28,44,68,0.3)] lg:-left-4"
                 style={{ animationDelay: "1s" }}
               >
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-sage-deep text-white">
@@ -227,7 +236,7 @@ export default function Home() {
           trailing={
             <a
               href={c.programs.viewAll.href}
-              className="font-engravers inline-flex items-center gap-2 text-sm text-ink-soft hover:text-ink"
+              className="font-engravers self-center sm:self-start inline-flex items-center gap-2 text-sm text-ink-soft hover:text-ink"
             >
               {c.programs.viewAll.label}
               <Icon name="arrow-right" className="h-3 w-3" />
@@ -253,7 +262,7 @@ export default function Home() {
               </p>
             </div>
 
-            <ol className="relative grid grid-cols-1 gap-6 sm:grid-cols-3 lg:grid-cols-5 lg:gap-4">
+            <ol className="relative grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
               <div
                 aria-hidden
                 className="absolute left-6 right-6 top-[22px] hidden h-px border-t border-dashed border-ink/20 lg:block"
@@ -276,9 +285,24 @@ export default function Home() {
           <div className="rounded-[32px] border border-hairline bg-white p-10">
             <Heading heading={c.results.heading} size="sm" />
             <div className="hairline mt-10" />
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-              {c.results.stats.map((stat) => (
-                <StatBlock key={stat.label} stat={stat} />
+
+            {/* StatCard Block */}
+            <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3">
+              {c.results.stats.map((stat, index) => (
+                <div
+                  key={stat.label}
+                  className={
+                    index === 2
+                      ? "col-span-2 flex justify-center md:col-span-1 md:block"
+                      : ""
+                  }
+                >
+                  <div
+                    className={index === 2 ? "w-full max-w-[140px]" : "w-full"}
+                  >
+                    <StatBlock stat={stat} />
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -296,11 +320,18 @@ export default function Home() {
               <p className="max-w-xl text-[16px] leading-[1.7] text-ink-soft">
                 {c.finalCta.description}
               </p>
-              <div className="flex flex-wrap items-center gap-4 pt-3">
-                <Button href={c.finalCta.cta.href} size="lg" withArrow>
+              <div className="flex flex-col items-stretch gap-4 pt-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <Button
+                  href={c.finalCta.cta.href}
+                  size="lg"
+                  withArrow
+                  fullWidthOnMobile
+                >
                   {c.finalCta.cta.label}
                 </Button>
-                <p className="text-[13px] text-ink-soft">{c.finalCta.note}</p>
+                <p className="text-center text-[13px] text-ink-soft sm:text-left">
+                  {c.finalCta.note}
+                </p>
               </div>
             </div>
 

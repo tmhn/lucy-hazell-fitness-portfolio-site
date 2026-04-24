@@ -10,6 +10,8 @@ type Props = {
   variant?: Variant;
   size?: Size;
   withArrow?: boolean;
+  fullWidth?: boolean;
+  fullWidthOnMobile?: boolean;
   className?: string;
 };
 
@@ -31,9 +33,18 @@ export function Button({
   variant = "primary",
   size = "md",
   withArrow = false,
+  fullWidth = false,
+  fullWidthOnMobile = false,
   className = "",
 }: Props) {
-  const classes = `${base} ${variants[variant]} ${sizes[size]} ${className} ${withArrow ? "group" : ""}`.trim();
+  const width = fullWidth
+    ? "flex w-full justify-center"
+    : fullWidthOnMobile
+      ? "flex w-full justify-center sm:inline-flex sm:w-auto"
+      : "";
+
+  const classes =
+    `${base} ${variants[variant]} ${sizes[size]} ${width} ${className} ${withArrow ? "group" : ""}`.trim();
 
   return (
     <a href={href} className={classes}>

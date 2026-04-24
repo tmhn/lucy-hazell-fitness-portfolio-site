@@ -37,7 +37,8 @@ export function Heading({
   className = "",
 }: Props) {
   const Tag = level;
-  const classes = `font-recoleta text-ink ${sizes[size]} ${className}`.trim();
+  const classes =
+    `font-recoleta text-center sm:text-start text-ink ${sizes[size]} ${className}`.trim();
 
   const emphasis = emphasisUnderline ? (
     <span className="relative inline-block italic text-sage-deep">

@@ -15,7 +15,7 @@ export const homeContent: HomeContent = {
   primaryCta: { label: "Book a Free Call", href: "#contact" },
 
   hero: {
-    eyebrow: "Online Coaching for Women",
+    eyebrow: "Personal Training & Coaching for Women",
     heading: {
       lead: "Stronger in body.\nStronger in ",
       emphasis: "life.",
@@ -35,10 +35,10 @@ export const homeContent: HomeContent = {
       textTrail: " in Yorkshire",
     },
     image: {
-      src: "/assets/hero_trainer_1.png",
+      src: "/assets/hero_trainer_1_bg_removed.png",
       alt: "Lucy, personal trainer, smiling with hands on hips",
     },
-    since: "Since. 2018",
+    since: "Since 2018",
     statCard: { value: "500+", label: "Women transformed", icon: "heart" },
     badge: { icon: "check", prefix: "Level 4", text: "PT & Nutrition Coach" },
   },
@@ -91,7 +91,7 @@ export const homeContent: HomeContent = {
         tag: "Signature",
         title: "1:1 Coaching",
         text: "Fully personalised training, nutrition and mindset coaching, built around your life and reviewed weekly.",
-        illustration: "/assets/program_illustration_1.png",
+        illustration: "/assets/program_illustration_bg_removed_1.png",
         link: { label: "Learn more", href: "#" },
         theme: "sage",
       },
@@ -99,7 +99,7 @@ export const homeContent: HomeContent = {
         tag: "Build strength",
         title: "Strength & Tone",
         text: "A twelve-week lift-focused plan to build lean muscle, feel powerful, and love how your body moves.",
-        illustration: "/assets/program_illustration_2.png",
+        illustration: "/assets/program_illustration_bg_removed_2.png",
         link: { label: "Learn more", href: "#" },
         theme: "cream",
       },
@@ -107,7 +107,7 @@ export const homeContent: HomeContent = {
         tag: "Women's health",
         title: "Women's Wellness",
         text: "Cycle-aware training, nutrition and recovery designed around energy, balance and long-term vitality.",
-        illustration: "/assets/program_illustration_3.png",
+        illustration: "/assets/program_illustration_bg_removed_3.png",
         link: { label: "Learn more", href: "#" },
         theme: "stone",
       },
@@ -126,11 +126,26 @@ export const homeContent: HomeContent = {
     description:
       "A clear, proven process to help you become your strongest self — without the guesswork, the faddy diets, or the six-am self-loathing.",
     steps: [
-      { number: "01", title: "Book a Call", text: "A relaxed chat about where you are and what you want." },
-      { number: "02", title: "Your Plan", text: "A tailored programme, delivered in your Lucy app." },
-      { number: "03", title: "Take Action", text: "Train confidently with video demos and weekly check-ins." },
-      { number: "04", title: "Track Progress", text: "See strength, energy and habits shift — not just the scale." },
-      { number: "05", title: "Feel Amazing", text: "Move through life lighter, stronger and properly yourself." },
+      {
+        number: "01",
+        title: "Book a Call",
+        text: "A relaxed chat about where you are and what you want.",
+      },
+      {
+        number: "02",
+        title: "Your Plan",
+        text: "A tailored programme, delivered in your Lucy app.",
+      },
+      {
+        number: "03",
+        title: "Train & Track",
+        text: "Follow video demos with weekly check-ins as strength, energy and habits start to shift.",
+      },
+      {
+        number: "04",
+        title: "Feel Amazing",
+        text: "Move through life lighter, stronger and properly yourself.",
+      },
     ],
   },
 

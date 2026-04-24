@@ -2,7 +2,7 @@ import type { Stat } from "@/content/types";
 
 export function StatBlock({ stat }: { stat: Stat }) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col text-center sm:text-start">
       <p className="font-recoleta text-[52px] leading-none tracking-[-0.02em] text-ink sm:text-[64px]">
         {stat.value}
       </p>
