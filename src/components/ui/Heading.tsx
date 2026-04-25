@@ -3,11 +3,13 @@ import type { Heading as HeadingContent } from "@/content/types";
 
 type Level = "h1" | "h2";
 type Size = "sm" | "md" | "lg" | "xl";
+type Align = "start" | "center";
 
 type Props = {
   heading: HeadingContent;
   level?: Level;
   size?: Size;
+  align?: Align;
   emphasisUnderline?: boolean;
   className?: string;
 };
@@ -33,12 +35,15 @@ export function Heading({
   heading,
   level = "h2",
   size = "sm",
+  align = "start",
   emphasisUnderline = false,
   className = "",
 }: Props) {
   const Tag = level;
+  const alignment =
+    align === "center" ? "text-center" : "text-center sm:text-start";
   const classes =
-    `font-recoleta text-center sm:text-start text-ink ${sizes[size]} ${className}`.trim();
+    `font-recoleta ${alignment} text-ink ${sizes[size]} ${className}`.trim();
 
   const emphasis = emphasisUnderline ? (
     <span className="relative inline-block italic text-sage-deep">

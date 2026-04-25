@@ -166,6 +166,95 @@ body {
   display: none;
 }
 
+/* accordion — smooth open/close via ::details-content + interpolate-size */
+details.faq-item {
+  interpolate-size: allow-keywords;
+}
+
+details.faq-item::details-content {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    height 360ms cubic-bezier(0.22, 0.68, 0.2, 1),
+    opacity 240ms ease,
+    content-visibility 360ms allow-discrete;
+}
+
+details.faq-item[open]::details-content {
+  height: auto;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  details.faq-item::details-content {
+    transition: none;
+  }
+}
+
+/* multi-step form transitions — slide + fade in the direction of travel */
+@keyframes stepEnterForward {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+@keyframes stepEnterBack {
+  from {
+    opacity: 0;
+    transform: translateX(-28px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+.step-enter-forward {
+  animation: stepEnterForward 420ms cubic-bezier(0.22, 0.68, 0.2, 1) both;
+}
+.step-enter-back {
+  animation: stepEnterBack 420ms cubic-bezier(0.22, 0.68, 0.2, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .step-enter-forward,
+  .step-enter-back {
+    animation: none;
+  }
+}
+
+/* form inputs — match the calm, paper-grain card aesthetic */
+.form-input {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid var(--hairline);
+  background: #ffffff;
+  padding: 0.875rem 1.05rem;
+  color: var(--color-ink, #1c2c44);
+  font-size: 15px;
+  line-height: 1.4;
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease;
+}
+.form-input::placeholder {
+  color: rgba(28, 44, 68, 0.35);
+}
+.form-input:focus {
+  outline: none;
+  border-color: rgba(74, 106, 84, 0.7);
+  box-shadow: 0 0 0 4px rgba(94, 124, 102, 0.14);
+  background: #ffffff;
+}
+
 /* nav underline */
 .nav-link {
   position: relative;
@@ -176,8 +265,8 @@ body {
   left: 0;
   right: 0;
   bottom: -6px;
-  height: 1px;
-  background: currentColor;
+  height: 2px;
+  background: rgba(74, 106, 84, 0.6);
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 340ms cubic-bezier(0.22, 0.68, 0.2, 1);

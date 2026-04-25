@@ -24,11 +24,11 @@ export function SectionHeading({
     <div
       className={`flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end ${className}`.trim()}
     >
-      <div className="max-w-xl space-y-5">
+      <div className="w-full max-w-xl space-y-5 sm:w-auto">
         <Eyebrow>{section.eyebrow}</Eyebrow>
         <Heading heading={section.heading} size={size} />
         {description && (
-          <p className="max-w-md text-[16px] leading-[1.65] text-ink-soft">
+          <p className="mx-auto max-w-md text-center text-[16px] leading-[1.65] text-ink-soft sm:mx-0 sm:text-left">
             {description}
           </p>
         )}

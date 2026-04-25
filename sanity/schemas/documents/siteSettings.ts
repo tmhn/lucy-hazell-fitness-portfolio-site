@@ -25,6 +25,13 @@ export const siteSettings = defineType({
       type: "link",
     }),
     defineField({
+      name: "menuPhoto",
+      title: "Mobile menu photo",
+      type: "imageAsset",
+      description:
+        "Photo shown inside the mobile nav drawer (typically Lucy's hero portrait).",
+    }),
+    defineField({
       name: "footer",
       type: "object",
       fields: [
