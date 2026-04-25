@@ -50,6 +50,7 @@ export function MobileMenu({ nav, cta, brand, photo, location }: Props) {
       </button>
 
       {mounted &&
+        open &&
         createPortal(
           <MobileMenuDrawer
             open={open}
@@ -89,7 +90,9 @@ function MobileMenuDrawer({
     <>
       <div
         aria-hidden={!open}
-        className={`fixed inset-0 z-[100] overflow-hidden lg:hidden ${open ? "pointer-events-auto" : "pointer-events-none"}`}
+        className={`fixed inset-0 z-[100] min-h-dvh overflow-hidden lg:hidden ${
+          open ? "pointer-events-auto" : "pointer-events-none"
+        }`}
       >
         <button
           type="button"
@@ -103,7 +106,9 @@ function MobileMenuDrawer({
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"
-          className={`paper-grain absolute inset-y-0 right-0 flex w-full max-w-[440px] flex-col overflow-hidden border-l border-hairline bg-[#f6f1e7] transition-transform duration-[520ms] ease-[cubic-bezier(0.22,0.68,0.2,1)] ${open ? "translate-x-0" : "translate-x-full"}`}
+          className={`paper-grain absolute inset-0 flex min-h-dvh w-screen flex-col overflow-hidden bg-[#f6f1e7] transition-transform duration-[520ms] ease-[cubic-bezier(0.22,0.68,0.2,1)] ${
+            open ? "translate-x-0" : "translate-x-full"
+          }`}
         >
           <div aria-hidden className="pointer-events-none absolute -left-20 top-40 h-64 w-64 rounded-full bg-sage-soft/30 blur-3xl" />
           <div aria-hidden className="pointer-events-none absolute -bottom-24 -right-10 h-72 w-72 rounded-full bg-[#ede2cc]/70 blur-3xl" />

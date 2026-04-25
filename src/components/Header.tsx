@@ -6,7 +6,7 @@ export default function Header({ settings }: { settings: SiteSettings }) {
   const photo = settings.menuPhoto ?? { src: "", alt: "" };
   return (
     <header
-      className="rise flex flex-wrap items-center justify-between gap-6 rounded-full border border-hairline bg-white/50 px-6 py-4 backdrop-blur-sm sm:px-7"
+      className="rise flex items-center justify-between gap-6 rounded-full border border-hairline bg-white/50 px-6 py-4 backdrop-blur-sm sm:px-7"
       style={{ animationDelay: "40ms" }}
     >
       <a href="/" className="flex items-center gap-3">
@@ -32,8 +32,10 @@ export default function Header({ settings }: { settings: SiteSettings }) {
         photo={photo}
         location="Yorkshire • Online worldwide"
       />
-      <div className="hidden md:block">
-        <Button href={settings.primaryCta.href}>{settings.primaryCta.label}</Button>
+      <div className="hidden lg:block">
+        <Button href={settings.primaryCta.href}>
+          {settings.primaryCta.label}
+        </Button>
       </div>
     </header>
   );
